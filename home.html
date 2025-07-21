@@ -121,7 +121,9 @@
     <a href="#futuro"><i class="fa-solid fa-rocket"></i> Futuro</a>
     <a href="#recursos"><i class="fa-solid fa-lightbulb"></i> Recursos</a>
 
-    <nav>
+  
+  <a href="#formacao">...</a>
+  ...
   <a href="feedback.html"><i class="fa-solid fa-comment-dots"></i> Feedback</a>
   <span id="linkAdmin"></span>
 </nav>
@@ -204,18 +206,26 @@
 
   </footer>
 
-  <script>
-    const user = localStorage.getItem('usuarioLogado');
-    if (!user) {
-      window.location.href = 'index.html';
-    } else {
-      document.getElementById('usuarioLogado').textContent = user;
-    }
+<script>
+  const user = localStorage.getItem('usuarioLogado');
+  if (!user) {
+    window.location.href = 'index.html';
+  } else {
+    document.getElementById('usuarioLogado').textContent = user;
+  }
 
-    function logout() {
-      localStorage.removeItem('usuarioLogado');
-      window.location.href = 'index.html';
-    }
-  </script>
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const usuarioAtual = usuarios.find(u => u.nome === user);
+
+  if (usuarioAtual && usuarioAtual.email === 'admin@connectti.com') {
+    const linkAdmin = document.getElementById('linkAdmin');
+    linkAdmin.innerHTML = `<a href="admin.html"><i class="fa-solid fa-lock"></i> Painel Admin</a>`;
+  }
+
+  function logout() {
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = 'index.html';
+  }
+</script>
 </body>
 </html>
