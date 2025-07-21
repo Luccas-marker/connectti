@@ -2,17 +2,18 @@
 document.getElementById('loginForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const usuario = document.getElementById('usuario').value;
+  const email = document.getElementById('email').value.trim();
   const senha = document.getElementById('senha').value;
 
   const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-  const usuarioValido = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+  const usuarioValido = usuarios.find(u => u.email === email && u.senha === senha);
 
   if (usuarioValido) {
-    localStorage.setItem('usuarioLogado', usuario);
+    // Salva o nome do usuário logado
+    localStorage.setItem('usuarioLogado', usuarioValido.nome);
     window.location.href = 'home.html';
   } else {
-    document.getElementById('erro').textContent = 'Usuário ou senha inválidos.';
+    document.getElementById('erro').textContent = 'E-mail ou senha inválidos.';
   }
 });
