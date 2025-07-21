@@ -1,0 +1,25 @@
+<!-- cadastro.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectTI - Cadastro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>ConnectTI</h1>
+    <h2>Cadastro</h2>
+    <form id="cadastroForm">
+      <input type="text" id="novoUsuario" placeholder="Novo usuário" required>
+      <input type="password" id="novaSenha" placeholder="Nova senha" required>
+      <button type="submit">Cadastrar</button>
+      <p>Já tem conta? <a href="index.html">Faça login</a></p>
+    </form>
+    <p id="cadastroMensagem" style="color: green;"></p>
+  </div>
+
+  <script src="js/cadastro.js"></script>
+</body>
+</html>

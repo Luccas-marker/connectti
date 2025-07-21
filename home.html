@@ -1,0 +1,111 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectTI - Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    .aba {
+      display: none;
+    }
+
+    .ativa {
+      display: block;
+    }
+
+    .logout {
+      float: right;
+      color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo ao ConnectTI</h1>
+    <p>Usuário logado: <span id="usuarioLogado"></span> <span class="logout" onclick="logout()">[Sair]</span></p>
+    
+    <nav>
+      <a onclick="mostrarAba('formacao')">Formação em TI</a>
+      <a onclick="mostrarAba('atuacao')">Áreas de Atuação</a>
+      <a onclick="mostrarAba('salario')">Média Salarial</a>
+      <a onclick="mostrarAba('videohour')">VideoHour</a>
+      <a onclick="mostrarAba('cprogramado')">C-Programado</a>
+      <a onclick="mostrarAba('html')">HTML</a>
+    </nav>
+
+    <section id="formacao" class="aba ativa">
+      <h2>Formação em TI</h2>
+      <p>TI é uma área que envolve cursos como Ciência da Computação, Sistemas de Informação, Engenharia da Computação, Análise e Desenvolvimento de Sistemas, entre outros.</p>
+    </section>
+
+    <section id="atuacao" class="aba">
+      <h2>Áreas de Atuação</h2>
+      <ul>
+        <li>Desenvolvimento Web</li>
+        <li>Banco de Dados</li>
+        <li>Segurança da Informação</li>
+        <li>Redes de Computadores</li>
+        <li>Suporte Técnico</li>
+        <li>Gestão de Projetos</li>
+      </ul>
+    </section>
+
+    <section id="salario" class="aba">
+      <h2>Média Salarial</h2>
+      <p>Desenvolvedor Júnior: R$ 3.000,00 a R$ 5.000,00</p>
+      <p>Desenvolvedor Pleno: R$ 5.000,00 a R$ 8.000,00</p>
+      <p>Desenvolvedor Sênior: R$ 8.000,00 a R$ 15.000,00</p>
+    </section>
+
+    <section id="videohour" class="aba">
+      <h2>VideoHour</h2>
+      <p>Aprenda com vídeos:</p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=GQp1zzTwrIg" target="_blank">Introdução à Programação</a></li>
+        <li><a href="https://www.youtube.com/watch?v=UBAX-13g8OM" target="_blank">Lógica de Programação</a></li>
+      </ul>
+    </section>
+
+    <section id="cprogramado" class="aba">
+      <h2>C-Programado</h2>
+      <p>Aqui você aprende sobre linguagem C: ponteiros, estruturas, funções, etc.</p>
+    </section>
+
+    <section id="html" class="aba">
+      <h2>HTML</h2>
+      <p>HTML é a linguagem de marcação base da Web. Estrutura, semântica e componentes visuais.</p>
+    </section>
+  </div>
+
+  <script>
+    const user = localStorage.getItem('usuarioLogado');
+    if (!user) {
+      window.location.href = 'index.html';
+    } else {
+      document.getElementById('usuarioLogado').textContent = user;
+    }
+
+    function mostrarAba(id) {
+      const abas = document.querySelectorAll('.aba');
+      abas.forEach(aba => aba.classList.remove('ativa'));
+      document.getElementById(id).classList.add('ativa');
+    }
+
+    function logout() {
+      localStorage.removeItem('usuarioLogado');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
