@@ -1,4 +1,3 @@
-<!-- home.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,85 +6,145 @@
   <title>ConnectTI - Portal</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+
     nav a {
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
       color: #007bff;
-      cursor: pointer;
-    }
-
-    .aba {
-      display: none;
-    }
-
-    .ativa {
-      display: block;
+      font-weight: bold;
     }
 
     .logout {
       float: right;
+      margin-right: 30px;
       color: red;
+      font-weight: bold;
       cursor: pointer;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <header>
     <h1>Bem-vindo ao ConnectTI</h1>
-    <p>Usuário logado: <span id="usuarioLogado"></span> <span class="logout" onclick="logout()">[Sair]</span></p>
-    
+    <p>Usuário: <span id="usuarioLogado"></span> <span class="logout" onclick="logout()">[Sair]</span></p>
+  </header>
+
+  <div class="container">
+
     <nav>
-      <a onclick="mostrarAba('formacao')">Formação em TI</a>
-      <a onclick="mostrarAba('atuacao')">Áreas de Atuação</a>
-      <a onclick="mostrarAba('salario')">Média Salarial</a>
-      <a onclick="mostrarAba('videohour')">VideoHour</a>
-      <a onclick="mostrarAba('cprogramado')">C-Programado</a>
-      <a onclick="mostrarAba('html')">HTML</a>
+      <a href="#formacao">Formação</a>
+      <a href="#atuacao">Atuação</a>
+      <a href="#linguagens">Linguagens</a>
+      <a href="#salario">Salário</a>
+      <a href="#recursos">Recursos</a>
     </nav>
 
-    <section id="formacao" class="aba ativa">
+    <section id="formacao" class="card">
       <h2>Formação em TI</h2>
-      <p>TI é uma área que envolve cursos como Ciência da Computação, Sistemas de Informação, Engenharia da Computação, Análise e Desenvolvimento de Sistemas, entre outros.</p>
+      <p>TI oferece múltiplas possibilidades de formação, como:</p>
+      <ul>
+        <li>Ciência da Computação</li>
+        <li>Análise e Desenvolvimento de Sistemas</li>
+        <li>Engenharia da Computação</li>
+        <li>Sistemas de Informação</li>
+        <li>Curso técnico em informática</li>
+      </ul>
     </section>
 
-    <section id="atuacao" class="aba">
+    <section id="atuacao" class="card">
       <h2>Áreas de Atuação</h2>
       <ul>
         <li>Desenvolvimento Web</li>
-        <li>Banco de Dados</li>
         <li>Segurança da Informação</li>
-        <li>Redes de Computadores</li>
+        <li>Banco de Dados</li>
+        <li>Redes e Infraestrutura</li>
         <li>Suporte Técnico</li>
-        <li>Gestão de Projetos</li>
+        <li>Gestão de Projetos de TI</li>
       </ul>
     </section>
 
-    <section id="salario" class="aba">
-      <h2>Média Salarial</h2>
-      <p>Desenvolvedor Júnior: R$ 3.000,00 a R$ 5.000,00</p>
-      <p>Desenvolvedor Pleno: R$ 5.000,00 a R$ 8.000,00</p>
-      <p>Desenvolvedor Sênior: R$ 8.000,00 a R$ 15.000,00</p>
-    </section>
-
-    <section id="videohour" class="aba">
-      <h2>VideoHour</h2>
-      <p>Aprenda com vídeos:</p>
+    <section id="linguagens" class="card">
+      <h2>Linguagens mais usadas</h2>
+      <p>Conhecer linguagens populares pode abrir portas:</p>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=GQp1zzTwrIg" target="_blank">Introdução à Programação</a></li>
-        <li><a href="https://www.youtube.com/watch?v=UBAX-13g8OM" target="_blank">Lógica de Programação</a></li>
+        <li>JavaScript (web)</li>
+        <li>Python (IA, automação)</li>
+        <li>Java (empresas grandes)</li>
+        <li>C# (sistemas Windows)</li>
+        <li>SQL (banco de dados)</li>
       </ul>
     </section>
 
-    <section id="cprogramado" class="aba">
-      <h2>C-Programado</h2>
-      <p>Aqui você aprende sobre linguagem C: ponteiros, estruturas, funções, etc.</p>
+    <section id="salario" class="card">
+      <h2>Média Salarial</h2>
+      <p>Valores aproximados no Brasil:</p>
+      <ul>
+        <li>Júnior: R$ 3.000,00 a R$ 5.000,00</li>
+        <li>Pleno: R$ 5.000,00 a R$ 8.000,00</li>
+        <li>Sênior: R$ 8.000,00 a R$ 15.000,00</li>
+      </ul>
     </section>
 
-    <section id="html" class="aba">
-      <h2>HTML</h2>
-      <p>HTML é a linguagem de marcação base da Web. Estrutura, semântica e componentes visuais.</p>
+    <section id="recursos" class="card">
+      <h2>Recursos para Estudo</h2>
+      <ul>
+        <li><a href="https://www.alura.com.br" target="_blank">Alura</a></li>
+        <li><a href="https://www.cursoemvideo.com" target="_blank">Curso em Vídeo</a></li>
+        <li><a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a></li>
+        <li><a href="https://www.youtube.com/c/OneBitCode" target="_blank">OneBitCode (YouTube)</a></li>
+      </ul>
     </section>
+
+    <footer>
+      <p>&copy; 2025 ConnectTI. Todos os direitos reservados.</p>
+    </footer>
   </div>
 
   <script>
@@ -94,12 +153,6 @@
       window.location.href = 'index.html';
     } else {
       document.getElementById('usuarioLogado').textContent = user;
-    }
-
-    function mostrarAba(id) {
-      const abas = document.querySelectorAll('.aba');
-      abas.forEach(aba => aba.classList.remove('ativa'));
-      document.getElementById(id).classList.add('ativa');
     }
 
     function logout() {
