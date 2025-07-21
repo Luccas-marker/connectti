@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ConnectTI - Portal</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-n2d+EcdB9s5X9Cv1qPjcXpSgQz1Io+kMLYzFWuo4u2hxGZngsjxQ+fNIXRy7LBZChUN2bQz4q4GkqhjJ5Bz9xQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f6f8;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px;
+      background: #f4f6f8;
+      margin: 0;
     }
 
     header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 20px 0;
+      background: linear-gradient(to right, #007bff, #0056b3);
+      color: white;
+      padding: 20px;
       text-align: center;
-      border-radius: 8px;
-    }
-
-    nav {
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
+      position: relative;
     }
 
     .logout {
-      float: right;
-      margin-right: 30px;
-      color: red;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      color: #ffdddd;
       font-weight: bold;
       cursor: pointer;
     }
 
-    h2 {
-      margin-top: 40px;
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      background-color: #fff;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      margin-top: 0;
       color: #333;
     }
 
-    .card {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .section i {
+      margin-right: 10px;
+      color: #007bff;
     }
 
     ul {
@@ -63,89 +75,117 @@
     }
 
     footer {
+      background: #222;
+      color: #aaa;
       text-align: center;
-      margin-top: 50px;
-      color: #777;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #62a9ff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Bem-vindo ao ConnectTI</h1>
-    <p>Usuário: <span id="usuarioLogado"></span> <span class="logout" onclick="logout()">[Sair]</span></p>
+    <h1>ConnectTI</h1>
+    <p>Bem-vindo, <span id="usuarioLogado"></span>!</p>
+    <span class="logout" onclick="logout()">[Sair]</span>
   </header>
 
+  <nav>
+    <a href="#formacao"><i class="fa-solid fa-user-graduate"></i> Formação</a>
+    <a href="#atuacao"><i class="fa-solid fa-briefcase"></i> Atuação</a>
+    <a href="#linguagens"><i class="fa-solid fa-code"></i> Linguagens</a>
+    <a href="#salario"><i class="fa-solid fa-money-bill-wave"></i> Salário</a>
+    <a href="#futuro"><i class="fa-solid fa-rocket"></i> Futuro</a>
+    <a href="#recursos"><i class="fa-solid fa-lightbulb"></i> Recursos</a>
+  </nav>
+
   <div class="container">
-
-    <nav>
-      <a href="#formacao">Formação</a>
-      <a href="#atuacao">Atuação</a>
-      <a href="#linguagens">Linguagens</a>
-      <a href="#salario">Salário</a>
-      <a href="#recursos">Recursos</a>
-    </nav>
-
-    <section id="formacao" class="card">
-      <h2>Formação em TI</h2>
-      <p>TI oferece múltiplas possibilidades de formação, como:</p>
+    <section id="formacao" class="section">
+      <h2><i class="fa-solid fa-user-graduate"></i> Formação em TI</h2>
+      <p>Cursos indicados para começar na área:</p>
       <ul>
         <li>Ciência da Computação</li>
         <li>Análise e Desenvolvimento de Sistemas</li>
         <li>Engenharia da Computação</li>
         <li>Sistemas de Informação</li>
-        <li>Curso técnico em informática</li>
+        <li>Técnico em Informática</li>
       </ul>
     </section>
 
-    <section id="atuacao" class="card">
-      <h2>Áreas de Atuação</h2>
+    <section id="atuacao" class="section">
+      <h2><i class="fa-solid fa-briefcase"></i> Áreas de Atuação</h2>
       <ul>
         <li>Desenvolvimento Web</li>
-        <li>Segurança da Informação</li>
-        <li>Banco de Dados</li>
-        <li>Redes e Infraestrutura</li>
-        <li>Suporte Técnico</li>
-        <li>Gestão de Projetos de TI</li>
+        <li>Mobile e Games</li>
+        <li>Segurança Cibernética</li>
+        <li>Suporte e Infraestrutura</li>
+        <li>Banco de Dados e Cloud</li>
+        <li>Gestão de Projetos e Produto</li>
       </ul>
     </section>
 
-    <section id="linguagens" class="card">
-      <h2>Linguagens mais usadas</h2>
-      <p>Conhecer linguagens populares pode abrir portas:</p>
+    <section id="linguagens" class="section">
+      <h2><i class="fa-solid fa-code"></i> Linguagens de Programação</h2>
+      <p>As mais buscadas pelo mercado:</p>
       <ul>
-        <li>JavaScript (web)</li>
-        <li>Python (IA, automação)</li>
-        <li>Java (empresas grandes)</li>
-        <li>C# (sistemas Windows)</li>
-        <li>SQL (banco de dados)</li>
+        <li>JavaScript - Web</li>
+        <li>Python - Inteligência Artificial e automação</li>
+        <li>Java - Aplicações robustas</li>
+        <li>C# - Jogos e sistemas Windows</li>
+        <li>SQL - Bancos de dados</li>
       </ul>
     </section>
 
-    <section id="salario" class="card">
-      <h2>Média Salarial</h2>
-      <p>Valores aproximados no Brasil:</p>
+    <section id="salario" class="section">
+      <h2><i class="fa-solid fa-money-bill-wave"></i> Média Salarial</h2>
       <ul>
-        <li>Júnior: R$ 3.000,00 a R$ 5.000,00</li>
-        <li>Pleno: R$ 5.000,00 a R$ 8.000,00</li>
-        <li>Sênior: R$ 8.000,00 a R$ 15.000,00</li>
+        <li>Júnior: R$ 3.000 a R$ 5.000</li>
+        <li>Pleno: R$ 5.000 a R$ 8.000</li>
+        <li>Sênior: R$ 8.000 a R$ 15.000</li>
       </ul>
     </section>
 
-    <section id="recursos" class="card">
-      <h2>Recursos para Estudo</h2>
+    <section id="futuro" class="section">
+      <h2><i class="fa-solid fa-rocket"></i> Oportunidades Futuras</h2>
+      <p>A área de TI está em constante crescimento. Profissões como Cientista de Dados, DevOps, Engenheiro de IA e Arquiteto de Cloud estão em alta!</p>
+    </section>
+
+    <section id="recursos" class="section">
+      <h2><i class="fa-solid fa-lightbulb"></i> Recursos para Estudo</h2>
       <ul>
         <li><a href="https://www.alura.com.br" target="_blank">Alura</a></li>
         <li><a href="https://www.cursoemvideo.com" target="_blank">Curso em Vídeo</a></li>
         <li><a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a></li>
-        <li><a href="https://www.youtube.com/c/OneBitCode" target="_blank">OneBitCode (YouTube)</a></li>
+        <li><a href="https://www.youtube.com/@OneBitCode" target="_blank">OneBitCode (YouTube)</a></li>
       </ul>
     </section>
-
-    <footer>
-      <p>&copy; 2025 ConnectTI. Todos os direitos reservados.</p>
-    </footer>
   </div>
+
+  <footer>
+    <p>Desenvolvido por <strong>Luccas Marker</strong> &copy; 2025</p>
+    <p>
+      <a href="https://github.com/Luccas-marker" target="_blank">GitHub</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
 
   <script>
     const user = localStorage.getItem('usuarioLogado');
