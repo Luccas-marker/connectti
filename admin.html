@@ -107,10 +107,16 @@
   </div>
 
   <script>
-    const usuario = localStorage.getItem('usuarioLogado');
-    if (!usuario) {
-      window.location.href = 'index.html';
-    }
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+const nomeLogado = localStorage.getItem('usuarioLogado');
+
+const usuario = usuarios.find(u => u.nome === nomeLogado);
+
+// Verifica se é o admin (pode mudar o e-mail abaixo)
+if (!usuario || usuario.email !== 'admin@connectti.com') {
+  alert("Acesso restrito!");
+  window.location.href = 'index.html';
+}
 
     const form = document.getElementById('formConteudo');
     const tabela = document.querySelector('#tabelaConteudos tbody');
