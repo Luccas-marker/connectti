@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - ConnectTI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back a {
+      color: #007bff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Painel Administrativo</h2>
+
+    <form id="formConteudo">
+      <input type="hidden" id="idEdicao" />
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" required />
+
+      <label for="area">Área:</label>
+      <select id="area" required>
+        <option value="">Selecione</option>
+        <option value="Formação">Formação</option>
+        <option value="Atuação">Atuação</option>
+        <option value="Linguagens">Linguagens</option>
+        <option value="Recursos">Recursos</option>
+        <option value="Outro">Outro</option>
+      </select>
+
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" rows="3" required></textarea>
+
+      <button type="submit">Salvar Conteúdo</button>
+    </form>
+
+    <h3>Conteúdos Cadastrados</h3>
+    <table id="tabelaConteudos">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Área</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="back">
+      <a href="home.html">Voltar para o portal</a>
+    </div>
+  </div>
+
+  <script>
+    const usuario = localStorage.getItem('usuarioLogado');
+    if (!usuario) {
+      window.location.href = 'index.html';
+    }
+
+    const form = document.getElementById('formConteudo');
+    const tabela = document.querySelector('#tabelaConteudos tbody');
+    let conteudos = JSON.parse(localStorage.getItem('conteudos')) || [];
+
+    function renderizar() {
+      tabela.innerHTML = '';
+      conteudos.forEach((c, i) => {
+        tabela.innerHTML += `
+          <tr>
+            <td>${c.titulo}</td>
+            <td>${c.area}</td>
+            <td>
+              <button onclick="editar(${i})">Editar</button>
+              <button onclick="excluir(${i})" style="background:red">Excluir</button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const id = document.getElementById('idEdicao').value;
+      const titulo = document.getElementById('titulo').value;
+      const area = document.getElementById('area').value;
+      const descricao = document.getElementById('descricao').value;
+
+      if (id) {
+        conteudos[id] = { titulo, area, descricao };
+      } else {
+        conteudos.push({ titulo, area, descricao });
+      }
+
+      localStorage.setItem('conteudos', JSON.stringify(conteudos));
+      form.reset();
+      document.getElementById('idEdicao').value = '';
+      renderizar();
+    });
+
+    function editar(i) {
+      const c = conteudos[i];
+      document.getElementById('idEdicao').value = i;
+      document.getElementById('titulo').value = c.titulo;
+      document.getElementById('area').value = c.area;
+      document.getElementById('descricao').value = c.descricao;
+    }
+
+    function excluir(i) {
+      if (confirm('Deseja excluir este conteúdo?')) {
+        conteudos.splice(i, 1);
+        localStorage.setItem('conteudos', JSON.stringify(conteudos));
+        renderizar();
+      }
+    }
+
+    renderizar();
+  </script>
+</body>
+</html>

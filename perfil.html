@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil - ConnectTI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .perfil-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    .info {
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+
+    .back-button {
+      display: block;
+      margin: 30px auto 0;
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="perfil-container">
+    <h2>Perfil do Usuário</h2>
+    <div class="info"><strong>Nome:</strong> <span id="perfilNome"></span></div>
+    <div class="info"><strong>E-mail:</strong> <span id="perfilEmail"></span></div>
+    <div class="info"><strong>Progresso:</strong> Trilha Web - 30% completo</div>
+
+    <a href="home.html" class="back-button">Voltar para o portal</a>
+  </div>
+
+  <script>
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const nomeLogado = localStorage.getItem('usuarioLogado');
+
+    const usuario = usuarios.find(u => u.nome === nomeLogado);
+
+    if (!usuario) {
+      window.location.href = 'index.html';
+    } else {
+      document.getElementById('perfilNome').textContent = usuario.nome;
+      document.getElementById('perfilEmail').textContent = usuario.email;
+    }
+  </script>
+</body>
+</html>
