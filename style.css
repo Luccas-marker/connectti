@@ -152,3 +152,18 @@ body {
     width: calc(100% - 180px);
   }
 }
+.botao-app {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.botao-app:hover {
+  background: #0056b3;
+}
