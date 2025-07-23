@@ -10,6 +10,8 @@ body {
   background-color: #f4f4f4;
   color: #333;
   display: flex;
+  flex-direction: row;
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -48,13 +50,14 @@ body {
 }
 
 .content {
-  margin-left: 220px;
+  flex: 1;
   padding: 20px;
-  width: calc(100% - 220px);
+  margin-left: 220px;
 }
 
 .container,
-.form-box {
+.form-box,
+.login-container {
   max-width: 900px;
   margin: 40px auto;
   padding: 30px;
@@ -71,6 +74,20 @@ button {
   padding: 12px;
   font-size: 16px;
   margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
 
 footer {
@@ -103,12 +120,31 @@ footer {
 
   .content {
     margin-left: 180px;
-    width: calc(100% - 180px);
   }
 
   .container,
-  .form-box {
+  .form-box,
+  .login-container {
     width: 90%;
     padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .content {
+    margin-left: 0;
   }
 }
