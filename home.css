@@ -9,24 +9,35 @@ body {
   background: #f4f6fb;
   color: #222;
   min-height: 100vh;
-  display: flex;
 }
 
 .sidebar {
+  position: fixed;
+  left: -240px;
+  top: 0;
   width: 220px;
+  height: 100vh;
   background: #222e50;
   color: #fff;
-  padding: 30px 0 0 0;
-  min-height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
+  z-index: 1000;
+  transition: left 0.3s;
+  box-shadow: 2px 0 10px rgba(34,46,80,0.08);
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+}
+
+.sidebar.open {
+  left: 0;
 }
 
 .sidebar h2 {
+  display: block;
+  width: 100%;
+  text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -35,13 +46,14 @@ body {
 .sidebar a {
   color: #fff;
   text-decoration: none;
-  padding: 12px 30px;
+  padding: 16px 30px;
   width: 100%;
   display: block;
-  border-radius: 4px;
-  margin-bottom: 8px;
+  border-radius: 0;
+  margin-bottom: 0;
   transition: background 0.2s;
   font-size: 1.1rem;
+  text-align: left;
 }
 
 .sidebar a:hover {
@@ -49,7 +61,7 @@ body {
 }
 
 .content {
-  margin-left: 220px;
+  margin-left: 0;
   padding: 40px 30px 30px 30px;
   width: 100%;
 }
@@ -119,6 +131,12 @@ footer a:hover {
 
 @media (max-width: 900px) {
   .content {
+    padding: 20px 5vw;
+  }
+  .sidebar h2 {
+    font-size: 1.3rem;
+  }
+  .content {
     margin-left: 0;
     padding: 20px 5vw;
   }
@@ -140,7 +158,7 @@ footer a:hover {
   }
 }
 .menu-toggle {
-  display: none;
+  display: block;
   position: fixed;
   top: 18px;
   left: 18px;
@@ -191,6 +209,9 @@ footer a:hover {
     width: 100%;
     border-radius: 0;
     text-align: left;
+  }
+  .sidebar a:hover {
+    background: #4361ee;
   }
   .content {
     margin-left: 0;
