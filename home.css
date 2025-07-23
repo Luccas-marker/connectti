@@ -169,12 +169,32 @@ footer a:hover {
     z-index: 1000;
     transition: left 0.3s;
     box-shadow: 2px 0 10px rgba(34,46,80,0.08);
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .sidebar.open {
     left: 0;
   }
+  .sidebar h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .sidebar a {
+    padding: 16px 30px;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    text-align: left;
+  }
   .content {
     margin-left: 0;
+    padding: 20px 5vw;
   }
   body.menu-open {
     overflow: hidden;
