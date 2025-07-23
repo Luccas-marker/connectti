@@ -1,0 +1,59 @@
+/* ===== CADASTRO ===== */
+.cadastro-container {
+  max-width: 480px;
+  margin: 70px auto;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro-container h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #0b1f3a;
+  margin-bottom: 25px;
+}
+
+.cadastro-container input[type="text"],
+.cadastro-container input[type="email"],
+.cadastro-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.cadastro-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cadastro-container button:hover {
+  background-color: #0056b3;
+}
+
+.cadastro-container .link-voltar {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cadastro-container .link-voltar a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cadastro-container .link-voltar a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,66 @@
+/* ===== HOME ===== */
+.home-container {
+  margin-left: 220px;
+  padding: 40px 60px;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.home-container h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #0b1f3a;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.home-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Seções com destaque */
+.home-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Links ou botões */
+.home-section a,
+.home-section button {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.home-section a:hover,
+.home-section button:hover {
+  background: #0056b3;
+}
+
+/* Para cards lado a lado se quiser usar futuramente */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
