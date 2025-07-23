@@ -1,59 +1,98 @@
-/* ===== CADASTRO ===== */
-.cadastro-container {
-  max-width: 480px;
-  margin: 70px auto;
-  background-color: #ffffff;
-  padding: 35px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.cadastro-container h2 {
-  text-align: center;
-  font-size: 28px;
-  color: #0b1f3a;
+body.cadastro {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f4f6fb 100%);
+  color: #222;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(34,46,80,0.10);
+  padding: 40px 30px 30px 30px;
+}
+
+h2 {
+  color: #222e50;
   margin-bottom: 25px;
-}
-
-.cadastro-container input[type="text"],
-.cadastro-container input[type="email"],
-.cadastro-container input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-
-.cadastro-container button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.cadastro-container button:hover {
-  background-color: #0056b3;
-}
-
-.cadastro-container .link-voltar {
-  margin-top: 20px;
+  font-size: 2rem;
   text-align: center;
+  letter-spacing: 1px;
 }
 
-.cadastro-container .link-voltar a {
-  color: #007bff;
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #4361ee;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  background: #f4f6fb;
+  transition: border 0.2s;
+}
+
+form input:focus {
+  border-color: #222e50;
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+form button[type="submit"]:hover {
+  background: #222e50;
+}
+
+form p {
+  text-align: center;
+  margin-top: 18px;
+}
+
+form a {
+  color: #4361ee;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.2s;
 }
 
-.cadastro-container .link-voltar a:hover {
+form a:hover {
+  color: #222e50;
   text-decoration: underline;
+}
+
+#cadastroMensagem {
+  color: #2ecc40;
+  text-align: center;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 18px 5vw;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
 }

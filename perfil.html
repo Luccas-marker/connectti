@@ -6,22 +6,22 @@
   <title>Perfil - ConnectTI</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="perfil.css" />
- 
 </head>
-<body>
+<body class="perfil">
   <div class="perfil-container">
     <h2>Perfil do Usuário</h2>
     <div class="info"><strong>Nome:</strong> <span id="perfilNome"></span></div>
     <div class="info"><strong>E-mail:</strong> <span id="perfilEmail"></span></div>
     <div class="info"><strong>Progresso:</strong> Trilha Web - 30% completo</div>
 
-    <a href="home.html" class="back-button">Voltar para o portal</a>
+    <div class="back">
+      <a href="home.html">Voltar para o portal</a>
+    </div>
   </div>
 
   <script>
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     const nomeLogado = localStorage.getItem('usuarioLogado');
-
     const usuario = usuarios.find(u => u.nome === nomeLogado);
 
     if (!usuario) {

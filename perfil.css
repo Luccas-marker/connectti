@@ -1,18 +1,25 @@
-/* ===== PERFIL ===== */
+/* ===== PERFIL PADRONIZADO ===== */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f4f6fb 100%);
+  min-height: 100vh;
+}
+
 .perfil-container {
   max-width: 500px;
   margin: 80px auto;
   padding: 35px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(34,46,80,0.10);
 }
 
 .perfil-container h2 {
   text-align: center;
-  font-size: 26px;
-  color: #0b1f3a;
+  font-size: 2rem;
+  color: #222e50;
   margin-bottom: 25px;
+  letter-spacing: 1px;
 }
 
 .perfil-container input[type="text"],
@@ -20,27 +27,35 @@
 .perfil-container input[type="password"] {
   width: 100%;
   padding: 12px;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1.5px solid #4361ee;
   border-radius: 6px;
+  background: #f4f6fb;
+  transition: border 0.2s;
+}
+
+.perfil-container input:focus {
+  border-color: #222e50;
+  outline: none;
 }
 
 .perfil-container button {
   width: 100%;
   padding: 12px;
-  font-size: 16px;
+  font-size: 1.1rem;
   font-weight: bold;
-  background-color: #007bff;
-  color: white;
+  background-color: #4361ee;
+  color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
+  margin-bottom: 10px;
 }
 
 .perfil-container button:hover {
-  background-color: #0056b3;
+  background-color: #222e50;
 }
 
 .perfil-container .back {
@@ -49,11 +64,30 @@
 }
 
 .perfil-container .back a {
-  color: #007bff;
+  color: #4361ee;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .perfil-container .back a:hover {
+  color: #222e50;
   text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .perfil-container {
+    padding: 18px 5vw;
+  }
+  .perfil-container h2 {
+    font-size: 1.3rem;
+  }
+}
+.perfil-container .info {
+  background: #f4f6fb;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  font-size: 1.08rem;
+  color: #222e50;
 }

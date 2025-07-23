@@ -1,66 +1,141 @@
-/* ===== HOME ===== */
-.home-container {
-  margin-left: 220px;
-  padding: 40px 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
   min-height: 100vh;
-  background: #f0f2f5;
+  display: flex;
 }
 
-.home-container h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #0b1f3a;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-}
-
-.home-container p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Seções com destaque */
-.home-section {
-  background: #fff;
-  border-radius: 8px;
-  padding: 25px 30px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-/* Links ou botões */
-.home-section a,
-.home-section button {
-  display: inline-block;
-  background: #007bff;
+.sidebar {
+  width: 220px;
+  background: #222e50;
   color: #fff;
-  padding: 12px 20px;
-  margin-top: 15px;
-  font-weight: bold;
-  border: none;
+  padding: 30px 0 0 0;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+  font-size: 1.1rem;
+}
+
+.sidebar a:hover {
+  background: #4361ee;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 40px 30px 30px 30px;
+  width: 100%;
+}
+
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section, .home-section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(34,46,80,0.07);
+  padding: 28px 30px 20px 30px;
+  margin-bottom: 30px;
+}
+
+.section h2, .home-section h2 {
+  color: #222e50;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.section ul, .home-section ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.section ul li, .home-section ul li {
+  margin-bottom: 6px;
+}
+
+.botao-app {
+  display: inline-block;
+  background: #4361ee;
+  color: #fff;
+  padding: 12px 22px;
   border-radius: 6px;
   text-decoration: none;
-  cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  margin: 5px 0;
+  transition: background 0.2s;
 }
 
-.home-section a:hover,
-.home-section button:hover {
-  background: #0056b3;
+.botao-app:hover {
+  background: #222e50;
 }
 
-/* Para cards lado a lado se quiser usar futuramente */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+footer {
+  background: #222e50;
+  color: #fff;
   text-align: center;
+  padding: 30px 10px 20px 10px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  color: #4361ee;
+}
+
+@media (max-width: 900px) {
+  .content {
+    margin-left: 0;
+    padding: 20px 5vw;
+  }
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: auto;
+    padding: 10px 0;
+  }
+  .sidebar a {
+    padding: 10px 12px;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .sidebar h2 {
+    display: none;
+  }
 }

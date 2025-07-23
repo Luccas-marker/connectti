@@ -1,77 +1,162 @@
-/* ===== ADMIN ===== */
-.admin-container {
-  max-width: 600px;
-  margin: 80px auto;
-  background-color: #ffffff;
-  padding: 35px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.admin-container h2 {
-  text-align: center;
-  font-size: 26px;
-  color: #0b1f3a;
+body.admin {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #e0e7ff 0%, #f4f6fb 100%);
+  color: #222;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(34,46,80,0.10);
+  padding: 40px 30px 30px 30px;
+}
+
+h2 {
+  color: #222e50;
   margin-bottom: 25px;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
-.admin-container input[type="text"],
-.admin-container input[type="email"],
-.admin-container input[type="password"] {
+form label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  color: #222e50;
+  font-weight: 500;
+}
+
+form input[type="text"],
+form select,
+form textarea {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  padding: 10px 12px;
+  border: 1.5px solid #4361ee;
   border-radius: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  background: #f4f6fb;
+  transition: border 0.2s;
 }
 
-.admin-container button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
+form input[type="text"]:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #222e50;
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: #4361ee;
+  color: #fff;
   border: none;
+  padding: 12px 28px;
   border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 18px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.2s;
 }
 
-.admin-container button:hover {
-  background-color: #0056b3;
+form button[type="submit"]:hover {
+  background: #222e50;
 }
 
-.admin-container .admin-table {
+h3 {
+  margin-top: 40px;
+  color: #222e50;
+  font-size: 1.3rem;
+}
+
+table {
   width: 100%;
-  margin-top: 30px;
   border-collapse: collapse;
+  margin-top: 18px;
+  background: #f4f6fb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(34,46,80,0.06);
 }
 
-.admin-container .admin-table th,
-.admin-container .admin-table td {
-  padding: 12px;
-  border: 1px solid #ddd;
+th, td {
+  padding: 12px 10px;
   text-align: left;
 }
 
-.admin-container .admin-table th {
-  background-color: #f5f5f5;
-  color: #0b1f3a;
+th {
+  background: #222e50;
+  color: #fff;
+  font-weight: 600;
 }
 
-.admin-container .back {
-  margin-top: 25px;
+tr:nth-child(even) {
+  background: #e0e7ff;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
+
+button {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #222e50;
+}
+
+button[style*="background:red"] {
+  background: #e63946 !important;
+}
+
+button[style*="background:red"]:hover {
+  background: #b71c1c !important;
+}
+
+.back {
+  margin-top: 30px;
   text-align: center;
 }
 
-.admin-container .back a {
-  color: #007bff;
+.back a {
+  color: #4361ee;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #e0e7ff;
+  transition: background 0.2s, color 0.2s;
 }
 
-.admin-container .back a:hover {
-  text-decoration: underline;
+.back a:hover {
+  background: #4361ee;
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 18px 5vw;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
 }
