@@ -105,6 +105,21 @@
 </head>
 <body>
 
+<div class="sidebar">
+  <h2>ConnectTI</h2>
+  <a href="home.html">🏠 Início</a>
+  <a href="perfil.html">👤 Perfil</a>
+  <a href="quiz.html">🧠 Quiz</a>
+  <a href="feedback.html">💬 Feedback</a>
+  <a href="admin.html" id="adminLink">🔒 Admin</a>
+  <a href="index.html" onclick="logout()">🚪 Sair</a>
+</div>
+
+<div class="content">
+  <!-- TODO: todo o conteúdo da página vem aqui, fora da sidebar -->
+  <!-- Se quiser posso atualizar o home.html pra você com isso incluído -->
+</div>
+
   <header>
     <h1>ConnectTI</h1>
     <p>Bem-vindo, <span id="usuarioLogado"></span>!</p>
@@ -223,25 +238,23 @@
   </footer>
 
 <script>
-  const user = localStorage.getItem('usuarioLogado');
-  if (!user) {
-    window.location.href = 'index.html';
-  } else {
-    document.getElementById('usuarioLogado').textContent = user;
+  // Mostrar "Admin" só se o usuário for admin
+  const user = JSON.parse(localStorage.getItem("usuarios"))?.find(u => u.logado);
+  const adminLink = document.getElementById("adminLink");
+  if (!user || user.email !== "admin@connectti.com") {
+    adminLink.style.display = "none";
   }
 
-  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-  const usuarioAtual = usuarios.find(u => u.nome === user);
-
-  if (usuarioAtual && usuarioAtual.email === 'admin@connectti.com') {
-    const linkAdmin = document.getElementById('linkAdmin');
-    linkAdmin.innerHTML = `<a href="admin.html"><i class="fa-solid fa-lock"></i> Painel Admin</a>`;
-  }
-
+  // Função de logout
   function logout() {
-    localStorage.removeItem('usuarioLogado');
-    window.location.href = 'index.html';
+    const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+    users.forEach(u => u.logado = false);
+    localStorage.setItem("usuarios", JSON.stringify(users));
   }
 </script>
+
+
+
+
 </body>
 </html>
