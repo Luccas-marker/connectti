@@ -139,3 +139,44 @@ footer a:hover {
     display: none;
   }
 }
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1001;
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(34,46,80,0.10);
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+  .sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: #222e50;
+    z-index: 1000;
+    transition: left 0.3s;
+    box-shadow: 2px 0 10px rgba(34,46,80,0.08);
+  }
+  .sidebar.open {
+    left: 0;
+  }
+  .content {
+    margin-left: 0;
+  }
+  body.menu-open {
+    overflow: hidden;
+  }
+}

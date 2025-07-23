@@ -12,8 +12,10 @@
   
 </head>
 <body>
-
-<div class="sidebar">
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="sidebar" id="sidebar">
   <h2>ConnectTI</h2>
   <a href="home.html">🏠 Início</a>
   <a href="perfil.html">👤 Perfil</a>
@@ -136,7 +138,29 @@
   }
 </script>
 
+<script>
+  // ...seu código existente...
 
+  // Menu retrátil
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  menuToggle.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  });
+
+  // Fechar menu ao clicar fora (opcional)
+  document.addEventListener('click', function(e) {
+    if (
+      sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) &&
+      e.target !== menuToggle
+    ) {
+      sidebar.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+</script>
 
 
 </body>
